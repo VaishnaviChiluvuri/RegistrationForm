@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            height:30px;
+            width:200px;
+            margin:20px;
+            border:1px solid black
+        }
+        textarea{
+            height:100px;
+            width:300px;
+            border:1px solid black;
+            text-align:start;
+            margin:20px;
+            margin-bottom:0px;
+        }
+        button{
+            margin-top:20px;
+            margin-left:76px;
+            text-align:center;
+            height:25px;
+            width:80px;
+            font-size:16px;
+            padding:0.3px;
+        }
+        #main{
+            margin-left:470px;
+            justify-content:center;
+            
+        }
+        #name{
+            margin-left:28px;
+        }
+        #Email{
+            margin-left:23px;
+        }
+        #message{
+            margin-top:10px;
+            margin-left:8px; 
+        }
+        #url{
+            margin-left:15px;
+        }
+        #total{
+            margin-left:500px;
+        }
+        h2{
+            text-align:center;
+            margin-top:100px;
+        }
+        #messagebox{
+            margin-bottom:-85px;
+            margin-left:5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="total"></div>
+    <h2> Registration Form </h2>
+    <div id="main">
+    <form id="myForm" onsubmit="return validForm()">
+    Name :<input type="text" placeholder="Enter your name." id="name">
+    <span class="error" id="nameError"></span>
+<br>
+    Email : <input type="email" placeholder="Enter your mail id here." id="Email">
+    <span class="error" id="mailError"></span>
+<br>
+    Website :<input type="url" placeholder="Enter your website url" id="url">
+    <span class="error" id="urlError"></span>
+<br>
+    Message : <textarea id="message" rows="4" placeholder="Message here."></textarea>
+    <span class="error" id="messageError"></span>
+<br>
+    <button type="submit">Submit</button>
+    </form>
+    </div>
+<script>
+    function validForm(){
+        let name=document.querySelector("#name");
+        let email=document.querySelector("#Email");
+        let website=document.querySelector("#url");
+        let message=document.querySelector("#message");
+
+        let nameError=document.querySelector("#nameError");
+        let mailError=document.querySelector("#mailError");
+        let websiteError=document.querySelector("#urlError");
+        let messageError=document.querySelector("#messageError");
+
+       isValid=true;
+           if (name.value ===""){
+                nameError.textContent = "This field is required."
+                nameError.style.color="red";
+                isValid=false;
+              }
+
+        if (email.value ===""){
+            isValid=false;
+            mailError.textContent = "A valid mail id is required.";
+            mailError.style.color="red";
+        }
+
+        if (website.value ===""){
+            websiteError.textContent = "This field is required."
+            websiteError.style.color="red";
+            isValid=false;
+        }
+
+        if (message.value ===""){
+            messageError.textContent = "This field is required."
+            messageError.style.color="red";
+            isValid=false;
+        }
+     
+        if(isValid){
+            alert("Successfully Submitted.");
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    </script>
+</body>
+</html>
